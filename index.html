@@ -1,0 +1,328 @@
+html
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roadmapper 9000</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212; /* Hintergrund dunkel */
+            color: #fff; /* Textfarbe hell */
+            overflow-x: hidden;
+        }
+        header {
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+            animation: slideInFromTop 1s ease-out;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+        section {
+            margin-bottom: 2rem;
+            position: relative;
+            opacity: 0; /* Startzustand der Animation */
+            transform: translateY(40px); /* Startzustand der Animation, doppelt so stark */
+            transition: opacity 1s ease-out, transform 1s ease-out; /* Transition für die Animation */
+        }
+        section.visible {
+            opacity: 1; /* Endzustand der Animation */
+            transform: translateY(0); /* Endzustand der Animation */
+        }
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 5px solid transparent;
+            border-image: linear-gradient(to bottom right, magenta, cyan) 1;
+            border-radius: 15px; /* Passend zum äußeren Radius */
+            z-index: 0; /* Unter den Inhalt legen */
+            pointer-events: none;
+            background-clip: border-box;
+        }
+        .content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.5rem;
+            border-radius: 15px; /* Ecken abgerundet */
+            background: rgba(255, 255, 255, 0.1); /* Hintergrund für sichtbare Rundungen */
+            z-index: 1; /* Über dem Pseudo-Element */
+            position: relative; /* Sicherstellen, dass der content über dem Pseudo-Element liegt */
+        }
+        .content img {
+            width: 150px;
+            height: 150px;
+            border-radius: 15px; /* Abgerundete Kanten */
+            margin-right: 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Leichter Schatten */
+        }
+        .content-left {
+            flex-direction: row;
+        }
+        .content-right {
+            flex-direction: row-reverse;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            animation: fadeIn 2s ease-in;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px); /* Doppelt so stark */
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes slideInFromTop {
+            from {
+                opacity: 0;
+                transform: translateY(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .hidden {
+            opacity: 0;
+            transform: translateY(40px); /* Doppelt so stark */
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Roadmapper 9000</h1>
+</header>
+
+<div class="container">
+    <section class="hidden">
+        <div class="content content-left">
+            <img src="https://via.placeholder.com/150" alt="Placeholder Image">
+            <div>
+                <h2>Projektziel</h2>
+                <p>Entwicklung einer Anwendung zur Bewertung, Protokollierung und Übermittlung der Wegebeschaffenheit von Fahrrad-Routen. Verwendetes Gerät: M5Stack Core 2. Datenerfassung durch Erschütterungsmessung auf verschiedenen Wegtypen.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="hidden">
+        <div class="content content-right">
+            <img src="https://via.placeholder.com/150" alt="Placeholder Image">
+            <div>
+                <h2>Klassifizierung der Wegebeschaffenheit</h2>
+                <ul>
+                    <li>Glatter Asphalt = 100</li>
+                    <li>Pflaster = 80</li>
+                    <li>Kies-/Schotterweg = 50</li>
+                    <li>Feldweg = 30</li>
+                    <li>Kopfsteinpflaster = 20</li>
+                    <li>Bordsteinkante = 10</li>
+                    <li>Tiefes Schlagloch = 0</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="hidden">
+        <div class="content content-left">
+            <img src="https://via.placeholder.com/150" alt="Placeholder Image">
+            <div>
+                <h2>Umsetzungsplan</h2>
+                <ol>
+                    <li>Datenerfassung: Rohdaten von Sensoren sammeln.</li>
+                    <li>Analyse: Verwendung der KNIME Analytics Platform.</li>
+                    <li>Klassifizierung: Strategie basierend auf den Daten entwickeln.</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <section class="hidden">
+        <div class="content content-right">
+            <img src="https://via.placeholder.com/150" alt="Placeholder Image">
+            <div>
+                <h2>Datenerfassung</h2>
+                <p>Methoden: Sensorrohdaten (Beschleunigung und Gyro) auslesen und auf SD-Karte speichern. Mehrere Datensätze für verschiedene Untergründe sammeln.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="hidden">
+        <div class="content content-left">
+            <img src="https://via.placeholder.com/150" alt="Placeholder Image">
+            <div>
+                <h2>Datenanalyse</h2>
+                <p>Verwendete Tools: KNIME Analytics Platform. Prozess: Rohdaten analysieren, Verarbeitungstests durchführen, Funktionalität bestimmen.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="hidden">
+        <div class="content content-right">
+            <img src="https://via.placeholder.com/150" alt="Placeholder Image">
+            <div>
+                <h2>Klassifizierungsstrategie</h2>
+                <p>Methode: Schwellenwerte für jeden Wegetyp basierend auf Testdaten definieren. Echtzeitvergleich der Sensordaten mit den Schwellenwerten.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="hidden">
+        <div class="content content-left">
+            <img src="https://via.placeholder.com/150" alt="Placeholder Image">
+            <div>
+                <h2>Datenübermittlung</h2>
+                <p>Prozess: Startnachricht an den Server senden. Aufnahme nach 5 Minuten Inaktivität stoppen. JSON-Nachricht via HTTP-POST senden.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="hidden">
+        <div class="content content-right">
+            <img src="https://via.placeholder.com/150" alt="Placeholder Image">
+            <div>
+                <h2>VS-Code für die Entwicklung</h2>
+                <p>Gründe: Unterstützung von C++. Erweiterbar mit Plugins (z.B. PlatformIO). GitHub-Integration für Teamarbeit.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="hidden">
+        <div class="content content-left">
+            <img src="https://via.placeholder.com/150" alt="Placeholder Image">
+            <div>
+                <h2>Projektphasen</h2>
+                <ol>
+                    <li>Projektstart: Einführung und Zielsetzung.</li>
+                    <li>Implementierung & Datenerfassung: Hardware- und Softwareeinrichtung.</li>
+                    <li>Datenanalyse & Klassifizierung: Algorithmusentwicklung.</li>
+                    <li>Datenübermittlung: JSON-Format auf Server übertragen.</li>
+                    <li>Integration & Abschlusstests: Fehlerbehebung und UI-Design.</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <section class="hidden">
+        <div class="content content-left">
+            <img src="https://via.placeholder.com/150" alt="Placeholder Image">
+            <div>
+                <h2>Meeting-Zeitplan</h2>
+                <p>Wöchentliche Meetings: Dienstags, 10:00-14:30. Kommunikation: GitHub, WhatsApp, Discord.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="hidden">
+        <div class="content content-right">
+            <img src="https://via.placeholder.com/150" alt="Placeholder Image">
+            <div>
+                <h2>Programmstruktur</h2>
+                <p>Aufgaben: Zeitsynchronisation, GPS-Daten sammeln, Display-Updates, Datenübertragung. RTOS: FreeRTOS für Aufgabenunabhängigkeit.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="hidden">
+        <div class="content content-left">
+            <img src="https://via.placeholder.com/150" alt="Placeholder Image">
+            <div>
+                <h2>Wichtige Funktionen</h2>
+                <p>NtpTask: Zeit via Wi-Fi synchronisieren. DisplayTask: Display mit GPS-Daten und Wegtyp aktualisieren. GpsTask: GPS-Daten sammeln.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="hidden">
+        <div class="content content-right">
+            <img src="https://via.placeholder.com/150" alt="Placeholder Image">
+            <div>
+                <h2>Klassifizierung & Ereigniserkennung</h2>
+                <p>IMU-Datenverarbeitung: Kontinuierliche Analyse für Wegtyp. Effiziente Berechnung mittels Exponential Moving Average. Ereigniserkennung: Schlaglöcher durch Beschleunigungsänderungen identifizieren.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="hidden">
+        <div class="content content-left">
+            <img src="https://via.placeholder.com/150" alt="Placeholder Image">
+            <div>
+                <h2>Ergebnisse & Bewertung</h2>
+                <p>Erfolge: Vielseitiger Einsatz des M5 Stack, UI-Anpassung, Datenübertragung. Herausforderungen: Anfangs Wissenslücken, ungleiche Aufgabenverteilung, knappe Zeit.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="hidden">
+        <div class="content content-right">
+            <img src="https://via.placeholder.com/150" alt="Placeholder Image">
+            <div>
+                <h2>Quellen</h2>
+                <p>Quellen: M5 Stack Dokumentation, Beispielcode von GitHub, KNIME, VS Code, PlatformIO.</p>
+            </div>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <p>&copy; 2024 Projektgruppe 2 - Bewertung der Wegebeschaffenheit von Fahrrad-Routen</p>
+</footer>
+
+<script>
+    // Intersection Observer for triggering animations
+    document.addEventListener('DOMContentLoaded', function() {
+        let sections = document.querySelectorAll('section');
+        let options = {
+            threshold: 0.1
+        };
+
+        let observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.remove('hidden');
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, options);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    });
+</script>
+
+</body>
+</html>
