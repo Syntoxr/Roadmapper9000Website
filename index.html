@@ -247,11 +247,24 @@
                 <img src="https://raw.githubusercontent.com/Syntoxr/Roadmapper9000Website/main/assets/strategy.png" alt="Placeholder Image">
                 <div>
                     <h2>Umsetzungsplan</h2>
-                    <ol>
-                        <li>Datenerfassung: Rohdaten von Sensoren sammeln.</li>
-                        <li>Analyse: Verwendung der KNIME Analytics Platform.</li>
-                        <li>Klassifizierung: Strategie basierend auf den Daten entwickeln.</li>
-                    </ol>
+                    <table>
+                        <tr>
+                            <th>Meilenstein</th>
+                            <th>Umsetzung</th>
+                        </tr>
+                        <tr>
+                            <td>Datenerfassung</td>
+                            <td>Rohdaten von Sensoren sammeln</td>
+                        </tr>
+                        <tr>
+                            <td>Analyse</td>
+                            <td>Verwendung der KNIME Analytics Platform</td>
+                        </tr>
+                        <tr>
+                            <td>Klassifizierung</td>
+                            <td>Strategie basierend auf den Daten entwickeln</td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </section>
@@ -261,7 +274,11 @@
                 <img src="https://raw.githubusercontent.com/Syntoxr/Roadmapper9000Website/main/assets/datacapture.png" alt="Placeholder Image">
                 <div>
                     <h2>Datenerfassung</h2>
-                    <p>Methoden: Sensorrohdaten (Beschleunigung und Gyro) auslesen und auf SD-Karte speichern. Mehrere Datensätze für verschiedene Untergründe sammeln.</p>
+                    <ul>
+                        <li>Rohdaten von Sensoren sammeln</li>
+                        <li>Rohdaten auf SD-Karte speichern</li>
+                        <li>Für verschiedene Untergründe wiederholen</li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -271,7 +288,11 @@
                 <img src="https://raw.githubusercontent.com/Syntoxr/Roadmapper9000Website/main/assets/dataanalysis.png" alt="Placeholder Image">
                 <div>
                     <h2>Datenanalyse</h2>
-                    <p>Verwendete Tools: KNIME Analytics Platform. Prozess: Rohdaten analysieren, Verarbeitungstests durchführen, Funktionalität bestimmen.</p>
+                    <ul>
+                        <li>Verwendung der KNIME Analytics Platform</li>
+                        <li>Verarbeitungstests durchführen</li>
+                        <li>Funktionalität bestimmen</li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -281,7 +302,10 @@
                 <img src="https://raw.githubusercontent.com/Syntoxr/Roadmapper9000Website/main/assets/classificationstrategy.png" alt="Placeholder Image">
                 <div>
                     <h2>Klassifizierungsstrategie</h2>
-                    <p>Methode: Schwellenwerte für jeden Wegetyp basierend auf Testdaten definieren. Echtzeitvergleich der Sensordaten mit den Schwellenwerten.</p>
+                    <ul>
+                        <li>Schwellenwerte für jeden Wegetyp basierend auf Testdaten definieren</li>
+                        <li>Echtzeitvergleich der Sensordaten mit den Schwellenwerten</li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -291,7 +315,11 @@
                 <img src="https://raw.githubusercontent.com/Syntoxr/Roadmapper9000Website/main/assets/datatransmission.png" alt="Placeholder Image">
                 <div>
                     <h2>Datenübermittlung</h2>
-                    <p>Prozess: Startnachricht an den Server senden. Aufnahme nach 5 Minuten Inaktivität stoppen. JSON-Nachricht via HTTP-POST senden.</p>
+                    <ul>
+                        <li>Startnachricht an den Server senden</li>
+                        <li>JSON-Nachricht via HTTP-POST senden</li>
+                        <li>Aufnahme nach 5 Minuten Inaktivität stoppen</li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -301,7 +329,14 @@
                 <img src="https://raw.githubusercontent.com/Syntoxr/Roadmapper9000Website/main/assets/vscode.png" alt="Placeholder Image">
                 <div>
                     <h2>VS-Code für die Entwicklung</h2>
-                    <p>Gründe: Unterstützung von C++. Erweiterbar mit Plugins (z.B. PlatformIO). GitHub-Integration für Teamarbeit.</p>
+                    <ul>
+                        <li>Erweiterbar mit Plugins
+                            <ul>
+                                <li>PlatformIO</li>
+                                <li>Git Integration</li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -337,7 +372,15 @@
                 <img src="https://raw.githubusercontent.com/Syntoxr/Roadmapper9000Website/main/assets/freertos.png" alt="Placeholder Image">
                 <div>
                     <h2>Programmstruktur</h2>
-                    <p>Aufgaben: Zeitsynchronisation, GPS-Daten sammeln, Display-Updates, Datenübertragung. RTOS: FreeRTOS für Aufgabenunabhängigkeit.</p>
+                    <h3>Tasks</h3>
+                    <ul>
+                        <li>NtpTask</li>
+                        <li>DisplayTask</li>
+                        <li>GpsTask</li>
+                        <li>ImuTask</li>
+                        <li>RoadmapperTask</li>
+                    </ul>
+                    <p>Vorteil FreeRTOS: Tasks laufen weitestgehend unabhängig von einander</p>
                 </div>
             </div>
         </section>
@@ -347,6 +390,13 @@
                 <img src="https://raw.githubusercontent.com/Syntoxr/Roadmapper9000Website/main/assets/function.png" alt="Placeholder Image">
                 <div>
                     <h2>Wichtige Funktionen</h2>
+                    <ul>
+                        <li>NtpTask: Zeit via Wi-Fi synchronisieren</li>
+                        <li>ImuTask: IMU-Datenerhebung und verarbeitung</li>
+                        <li>DisplayTask: Display mit GPS-Daten und Wegtyp aktualisieren</li>
+                        <li>GpsTask: GPS-Daten sammeln</li>
+                        <li>RoadmapperTask: Datenübertragung</li>
+                    </ul>
                     <p>NtpTask: Zeit via Wi-Fi synchronisieren. DisplayTask: Display mit GPS-Daten und Wegtyp aktualisieren. GpsTask: GPS-Daten sammeln.</p>
                 </div>
             </div>
@@ -357,7 +407,11 @@
                 <img src="https://raw.githubusercontent.com/Syntoxr/Roadmapper9000Website/main/assets/event.png" alt="Placeholder Image">
                 <div>
                     <h2>Klassifizierung & Ereigniserkennung</h2>
-                    <p>IMU-Datenverarbeitung: Kontinuierliche Analyse für Wegtyp. Effiziente Berechnung mittels Exponential Moving Average. Ereigniserkennung: Schlaglöcher durch Beschleunigungsänderungen identifizieren.</p>
+                    <ul>
+                        <li>Kontinuierliche Analyse für Wegtyp</li>
+                        <li>Effiziente Berechnung mittels Exponential Moving Average</li>
+                        <li>Schlaglöcher identifizieren durch Anomalien</li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -367,7 +421,18 @@
                 <img src="https://raw.githubusercontent.com/Syntoxr/Roadmapper9000Website/main/assets/summary.png" alt="Placeholder Image">
                 <div>
                     <h2>Ergebnisse & Bewertung</h2>
-                    <p>Erfolge: Vielseitiger Einsatz des M5 Stack, UI-Anpassung, Datenübertragung. Herausforderungen: Anfangs Wissenslücken, ungleiche Aufgabenverteilung, knappe Zeit.</p>
+                    <h3>Erfolge:</h3>
+                    <ul>
+                        <li>M5 Stack ist einfach vielseitig einsetzbar</li>
+                        <li>Ui-Anpassungen waren gut umzusetzten</li>
+                        <li>Daten übertragen funktioniert nach kurzen anpassungen</li>
+                    </ul>
+                    <h3>Herausforderungen:</h3>
+                    <ul>
+                        <li>Anfangs Wissenslösung</li>
+                        <li>Ungleiche Aufgabenverteilung</li>
+                        <li>Knappes Zeitmanagement</li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -377,7 +442,16 @@
                 <img src="https://raw.githubusercontent.com/Syntoxr/Roadmapper9000Website/main/assets/sources.png" alt="Placeholder Image">
                 <div>
                     <h2>Quellen</h2>
-                    <p>Quellen: M5 Stack Dokumentation, Beispielcode von GitHub, KNIME, VS Code, PlatformIO.</p>
+                    <ul>
+                        <li>M5 Stack Dokumentation</li>
+                        <li>Beispielcode von GitHub</li>
+                    </ul>
+                    <h2>Tools</h2>
+                    <ul>
+                        <li>KNIME</li>
+                        <li>VS Code</li>
+                        <li>PlatformIO</li>
+                    </ul>
                 </div>
             </div>
         </section>
